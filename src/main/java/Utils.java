@@ -8,13 +8,11 @@ public class Utils {
         if (sourceArray == null)
             throw new IllegalArgumentException();
 
-        Integer[] sourceArraySorted = Arrays.stream(sourceArray)
+        return Arrays.stream(sourceArray)
                 .filter(i -> i >= 0)
-                .sorted()
+                .sorted(Collections.reverseOrder())
                 .toArray(Integer[]::new);
 
-        Arrays.sort(sourceArraySorted, Collections.reverseOrder());
-        return sourceArraySorted;
     }
 
     public static List<String> getMostUsedHashtags(List<String> strings, int limit) {
